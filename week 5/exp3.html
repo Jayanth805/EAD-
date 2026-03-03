@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Number Analyzer</title>
+
+<style>
+    body {
+        font-family: 'Times New Roman', Times, serif, sans-serif;
+        background-color: pink;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+
+    .container {
+        background: white;
+        padding: 30px;
+        border-radius: 10px;
+        width: 400px;
+        text-align: center;
+    }
+
+    input {
+        width: 90%;
+        padding: 10px;
+        margin: 10px 0;
+        border-radius: 5px;
+        border: 1px solid black;
+    }
+
+    button {
+        padding: 10px 20px;
+        border: none;
+        background: plum;
+        color: black;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background: violet;
+    }
+
+    .result {
+        margin-top: 15px;
+        text-align: left;
+        font-size: 14px;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Number Analyzer Website</h1>
+    <input type="number" id="numberInput" placeholder="Enter a number">
+    <br>
+    <button onclick="analyzeNumber()">Analyze</button>
+
+    <div class="result" id="result"></div>
+</div>
+
+<script>
+
+    function isPalindrome(num) {
+        let original = num.toString();
+        let reversed = original.split('').reverse().join('');
+        return original === reversed;
+    }
+
+    function isArmstrong(num) {
+        let digits = num.toString().split('');
+        let power = digits.length;
+        let sum = 0;
+
+        for (let i = 0; i < digits.length; i++) {
+            sum += Math.pow(parseInt(digits[i]), power);
+        }
+
+        return sum === num;
+    }
+    function isPrime(num) {
+        if (num <= 1) return false;
+
+        for (let i = 2; i <= Math.sqrt(num); i++) {
+            if (num % i === 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+    function factorial(num) {
+        if (num < 0) return "Not defined for negative numbers";
+        if (num === 0 || num === 1) return 1;
+
+        let fact = 1;
+        for (let i = 2; i <= num; i++) {
+            fact *= i;
+        }
+        return fact;
+    }
+    function analyzeNumber() {
+        let num = parseInt(document.getElementById("numberInput").value);
+        let resultDiv = document.getElementById("result");
+
+        if (isNaN(num)) {
+            resultDiv.innerHTML = "Please enter a valid number!";
+            return;
+        }
+
+        let output = 
+            "<p><b>Palindrome:</b> " + (isPalindrome(num) ? "Yes" : "No") + "</p>" +
+            "<p><b>Armstrong:</b> " + (isArmstrong(num) ? "Yes" : "No") + "</p>" +
+            "<p><b>Prime:</b> " + (isPrime(num) ? "Yes" : "No") + "</p>" +
+            "<p><b>Factorial:</b> " + factorial(num) + "</p>";
+
+        resultDiv.innerHTML = output;
+    }
+</script>
+
+</body>
+</html>

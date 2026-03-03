@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>String Processor Tool</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .box {
+            background: white;
+            padding: 25px;
+            width: 350px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+            text-align: center;
+        }
+
+        input {
+            width: 90%;
+            padding: 8px;
+            margin: 10px 0;
+        }
+
+        button {
+            padding: 8px 15px;
+            background: #2196F3;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #1976D2;
+        }
+
+        .result {
+            margin-top: 15px;
+            text-align: left;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="box">
+    <h2>String Processor Tool</h2>
+    <input type="text" id="textInput" placeholder="Enter a sentence">
+    <br>
+    <button onclick="processString()">Analyze</button>
+
+    <div class="result" id="result"></div>
+</div>
+
+<script>
+
+    var reverseString = function(str) {
+        return str.split('').reverse().join('');
+    };
+
+    var countVowels = (str) => {
+        var vowels = "aeiouAEIOU";
+        var count = 0;
+
+        for (var i = 0; i < str.length; i++) {
+            if (vowels.includes(str[i])) {
+                count++;
+            }
+        }
+        return count;
+    };
+
+    var findLongestWord = function(str) {
+        var words = str.split(" ");
+        var longest = "";
+
+        for (var i = 0; i < words.length; i++) {
+            if (words[i].length > longest.length) {
+                longest = words[i];
+            }
+        }
+        return longest;
+    };
+
+    function processString() {
+        var text = document.getElementById("textInput").value;
+        var resultDiv = document.getElementById("result");
+
+        if (text.trim() === "") {
+            resultDiv.innerHTML = "Please enter a sentence!";
+            return;
+        }
+
+        resultDiv.innerHTML =
+            "<p><b>Reversed:</b> " + reverseString(text) + "</p>" +
+            "<p><b>Vowel Count:</b> " + countVowels(text) + "</p>" +
+            "<p><b>Longest Word:</b> " + findLongestWord(text) + "</p>" +
+            "<p><b>Uppercase:</b> " + text.toUpperCase() + "</p>";
+    }
+
+</script>
+
+</body>
+</html>
