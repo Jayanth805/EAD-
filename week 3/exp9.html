@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Responsive Page</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial;
+        }
+
+        .container {
+            display: flex;
+        }
+
+        .box {
+            flex: 1;
+            padding: 40px;
+            text-align: center;
+            color: white;
+        }
+
+        .box1 {
+            background-color: teal;
+        }
+
+        .box2 {
+            background-color: orange;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="box box1">Section 1</div>
+        <div class="box box2">Section 2</div>
+    </div>
+
+</body>
+</html>
