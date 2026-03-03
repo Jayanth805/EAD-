@@ -1,0 +1,40 @@
+body {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+}
+
+.board {
+    width: 400px;
+    height: 400px;
+    margin: 20px auto;
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+}
+
+.board div {
+    width: 50px;
+    height: 50px;
+}
+
+.board div:nth-child(odd) {
+    background-color: #ffffff;
+}
+
+.board div:nth-child(even) {
+    background-color: #000000;
+}
+
+.board div:nth-child(16n+9),
+.board div:nth-child(16n+11),
+.board div:nth-child(16n+13),
+.board div:nth-child(16n+15) {
+    background-color: #ffffff;
+}
+
+.board div:nth-child(16n+10),
+.board div:nth-child(16n+12),
+.board div:nth-child(16n+14),
+.board div:nth-child(16n+16) {
+    background-color: #000000;
+}

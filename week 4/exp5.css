@@ -1,0 +1,46 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+}
+
+form {
+    width: 400px;
+    margin: 40px auto;
+}
+
+fieldset {
+    border: 2px solid #4CAF50;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: white;
+}
+
+legend {
+    font-size: 18px;
+    font-weight: bold;
+    color: #4CAF50;
+    padding: 0 10px;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="email"],
+select {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+}
+
+button {
+    padding: 8px 15px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
